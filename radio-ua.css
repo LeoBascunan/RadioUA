@@ -1,0 +1,282 @@
+/* ====================  PALETA + TOKENS  ==================== */
+:root{
+  /* Colores UA */
+  --ua-navy: #03254C;          /* Pantone 2767 C */
+  --ua-navy-dk: #021a36;       /* Borde nav más oscuro */
+  --ua-blue: #0C5DC5;          /* Pantone 2935 C */
+  --ua-blue-50:#EAF3FF;
+
+  --ink: #1f2937;
+  --muted: #64748b;
+  --card: #ffffff;
+  --border: #e5e7eb;
+  --shadow: 0 6px 18px rgba(16,24,40,.06);
+
+  /* Controles de altura (ajústalos tú) */
+  --topbar-h: 84px;            /* Alto mínimo del topbar */
+  --logo-vpad: 6px;            /* resguardo arriba/abajo del logo dentro del topbar */
+  --player-w: 340px;           /* ancho máximo del reproductor */
+  --player-scale: .88;         /* escala visual del reproductor (0.75–1.0) */
+}
+
+/* ====================  BASE  ==================== */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  color:var(--ink);
+  background:#f7f8fb;
+}
+.container{width:min(1180px, 92vw); margin-inline:auto}
+.muted{color:var(--muted)}
+.ph{background:linear-gradient(135deg,#cdd8f6,#f7f8fb); border:1px dashed #c6d0ea}
+
+/* ====================  TOPBAR  ==================== */
+.topbar{ background:#fff; }
+.topbar-inner{
+  display:grid;
+  grid-template-columns: 1fr auto 1fr;  /* logo | player | rrss */
+  align-items:center;
+  min-height: var(--topbar-h);
+}
+.topbar .logo{ display:flex; align-items:center; }
+.logo-img{
+  display:block;
+  height:auto;
+  max-height: calc(var(--topbar-h) - (var(--logo-vpad) * 2)); /* el logo se ajusta solo */
+}
+.player-wrap{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding-block: var(--logo-vpad);         /* evita desborde del topbar */
+  line-height:0;                           /* elimina extra-espacio */
+}
+.mini-player{
+  width: var(--player-w);
+  max-width: 50vw;
+  transform: scale(var(--player-scale));   /* “achica” el player */
+  transform-origin: center;
+}
+.rrss{display:flex; gap:.5rem; justify-self:end}
+.rrss a{
+  width:38px; height:38px; display:grid; place-items:center;
+  border-radius:999px; text-decoration:none; font-weight:800;
+  background:var(--ua-navy); color:#fff; border:2px solid var(--ua-blue);
+}
+
+/* ====================  NAV  ==================== */
+.mainnav{
+  background:var(--ua-navy);
+  border-top:4px solid var(--ua-navy-dk);
+  border-bottom:4px solid var(--ua-navy-dk);
+}
+.mainnav-inner{
+  display:flex; gap:1rem; justify-content:center;
+  overflow:auto; scrollbar-width:none;
+}
+.mainnav-inner::-webkit-scrollbar{display:none}
+.mainnav a{
+  color:#fff; text-decoration:none; font-weight:600;
+  padding:.9rem 1rem; white-space:nowrap; text-align:center;
+  border-inline:1px solid rgba(255,255,255,.08);
+}
+.mainnav a:hover{background:rgba(255,255,255,.08)}
+
+/* ====================  GRID / COLUMNAS  ==================== */
+
+
+
+/* ====================  CARDS Y TÍTULOS  ==================== */
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:18px;
+  box-shadow:var(--shadow);
+  padding:1rem 1rem 1.25rem;
+}
+.inset{border:1px solid #dfe6fb; background:var(--ua-blue-50)}
+
+.section-title{
+  display:flex; align-items:center; gap:.6rem;
+  font-size:1.1rem; letter-spacing:.2px;
+  margin:.25rem 0 1rem;
+}
+.section-title::before{
+  content:""; width:10px; height:10px; border-radius:2px;
+  background:var(--ua-blue);
+  box-shadow:0 0 0 3px color-mix(in srgb, var(--ua-blue), #fff 60%);
+}
+
+/* ====================  NOTICIAS (izquierda)  ==================== */
+.card-news .news-feature{
+  display:grid; grid-template-columns: 120px 1fr; gap:.8rem;
+  padding:.75rem; border-radius:14px; border:1px dashed #e2e8f0; margin-bottom:.75rem;
+  max-width:720px; margin-inline:auto;   /* centra cada bloque */
+}
+.card-news .news-feature .img{width:120px; height:90px; border-radius:10px}
+.card-news .news-feature h3{margin:.1rem 0 .3rem; font-size:1.05rem}
+.card-news .news-feature a{color:var(--ink); text-decoration:none; display:block; text-align:justify}
+.card-news .news-feature a:hover{color:var(--ua-blue)}
+.card-news .news-feature p{margin:0; text-align:justify}
+.card-news .news-feature.alt{background:#fafbff}
+
+/* ====================  NOTICIAS VARIAS (centro)  ==================== */
+.card-list .list{list-style:none; padding:0; margin:0 0 1rem}
+.card-list .list li{padding:.55rem .35rem; border-bottom:1px dashed #e2e8f0}
+.card-list .list a{text-decoration:none; color:var(--ink); display:block; text-align:justify}
+.card-list .list a:hover{color:var(--ua-blue)}
+
+/* Mini-líneas (si las reactivas, se ven como la lista) */
+.mini-lines{ padding:0; margin:0 0 1rem; border:0; background:transparent; border-radius:0; display:block; }
+.mini-lines li{ padding:.55rem .35rem; border-bottom:1px dashed #e2e8f0; }
+.mini-lines a{ text-decoration:none; color:var(--ink); display:block; text-align:justify; font-weight:500; }
+.mini-lines a:hover{ color:var(--ua-blue); }
+
+.editorial{padding:1rem; border-radius:14px}
+.editorial p{margin:.2rem 0 0; text-align:justify}
+
+/* ====================  RADIO COLUMNAS (derecha)  ==================== */
+.card-columnas .gallery{height:180px; border-radius:14px; margin-bottom:.75rem}
+
+/* ====================  TICKER  ==================== */
+.ticker{
+  grid-column: 1 / -1;
+  display:grid; grid-template-columns: 160px 1fr;
+  background:var(--ua-navy); color:#fff; border-radius:16px; overflow:hidden;
+  border:2px solid var(--ua-blue);
+}
+.ticker-title{
+  display:grid; place-items:center; font-weight:800;
+  background:color-mix(in srgb, var(--ua-navy), #000 8%);
+}
+.ticker-track{
+  display:grid; grid-template-columns: 1fr; row-gap:.35rem;
+  padding:.75rem 1rem;
+}
+.ticker-track a{color:#fff; text-decoration:none; opacity:.95; display:block; text-align:justify}
+.ticker-track a:hover{text-decoration:underline}
+
+/* ====================  TRIPLETA DE LÍNEAS  ==================== */
+.triplet-lines{
+  grid-column: 1 / -1;
+  display:grid; gap:1rem; grid-template-columns: 1fr 1fr 1fr;
+  margin-top:.75rem;
+}
+.lines-card{
+  background:#fff; border:2px solid var(--ua-blue); border-radius:16px;
+  padding:.6rem .8rem;
+}
+.lines-card ul{list-style:none; padding:0; margin:0; display:grid; gap:.35rem}
+.lines-card a{text-decoration:none; font-weight:600; color:var(--ink); display:block; text-align:justify}
+.lines-card a:hover{color:var(--ua-blue)}
+
+/* ====================  FOOTER (modelo DIRINF)  ==================== */
+.dirinf-footer{background:#0f2340; color:#ffffff}
+.dirinf-footer a{color:#ffffff; text-decoration:none}
+.dirinf-footer a:hover{text-decoration:underline}
+.df-container{width:min(1180px,92vw); margin:0 auto; padding:22px 0 18px}
+.df-logos{padding:8px 0 12px}
+.df-logos img{height:56px; width:auto; display:block}
+.df-div{border:0; border-top:1px solid rgba(255,255,255,.6); margin:0 0 16px}
+.df-cols{
+  display:grid;
+  grid-template-columns: 1.4fr .8fr .8fr;
+  gap:48px;
+  padding-bottom:18px;
+}
+.df-cols p{margin:.25rem 0; line-height:1.35; text-align:justify}
+.df-legal{
+  border-top:1px solid rgba(255,255,255,.2);
+  margin-top:6px; padding-top:10px;
+  font-size:.9rem; color:#dce6ff; text-align:left;
+}
+
+/* ====================  RESPONSIVE  ==================== */
+@media (max-width: 1024px){
+  .grid{grid-template-columns: 1fr 1fr} /* 2 columnas */
+  .ticker, .triplet-lines{grid-column: 1 / -1}
+  .df-cols{grid-template-columns:1fr 1fr}
+}
+@media (max-width: 720px){
+  .mainnav-inner{justify-content:flex-start} /* en móvil, scroll si es largo */
+  .grid{grid-template-columns: 1fr}          /* 1 columna */
+  .ticker{grid-template-columns: 130px 1fr}
+  .triplet-lines{grid-template-columns: 1fr}
+  .df-cols{grid-template-columns:1fr}
+  /* alturas móviles (opcional) */
+  :root{ --topbar-h: 74px; --player-w: 260px; --player-scale: .86; }
+}
+
+/* 1) Las columnas del grid deben estirarse a la misma altura */
+/* === columnas iguales y editorial pegado abajo === */
+.grid{
+  display:grid;
+  grid-template-columns: 1.2fr .9fr 1fr;  /* izq | centro | der */
+  gap:1.25rem;
+  align-items:stretch;                    /* las 3 columnas quedan con la misma altura */
+  padding:1rem 0 2rem;
+}
+
+.grid > .col{
+  display:flex;                           /* apilar contenido en cada columna */
+  flex-direction:column;
+  gap:1.25rem;
+  min-height:0;                           /* evita que la altura del contenido limite el estiramiento */
+}
+
+/* la columna central ya tiene 2 piezas: lista + editorial
+   empujamos el editorial al fondo de su columna */
+#bloque-editorial{ margin-top:auto; }
+
+@media (max-width: 720px){
+  #bloque-editorial{ margin-top:0; }      /* en móvil no hace falta */
+}
+
+
+/* 3) Empuja el bloque editorial hacia abajo para alinear el borde inferior */
+#bloque-editorial{
+  margin-top:auto;
+}
+
+/* Opcional: en móvil no necesitamos empujarlo */
+@media (max-width: 720px){
+  #bloque-editorial{ margin-top:0; }
+}
+/* Estira los únicos cards de las columnas 1 y 3 para que llenen la columna */
+.col-left > .card,
+.col-right > .card{
+  height: 100%;
+}
+
+/* === Espaciado vertical global (pegar al final) === */
+:root{
+  --section-gap: 28px;   /* bandas: topbar↔nav, nav↔contenido, etc. */
+  --row-gap: 24px;       /* filas dentro del .grid (3 columnas ↔ ticker ↔ tripleta) */
+  --card-gap: 20px;      /* separación entre cards dentro de cada columna */
+}
+
+/* Bandas principales */
+.topbar{ margin-bottom: var(--section-gap); }
+.mainnav{ margin-bottom: var(--section-gap); }
+
+/* Grid más “largo” y aireado */
+.grid{
+  column-gap: 1.25rem;                     /* conserva separación horizontal */
+  row-gap: var(--row-gap);                 /* +espacio vertical entre filas del grid */
+  padding: calc(var(--row-gap)*0.75) 0 calc(var(--row-gap)*1.25);
+}
+
+/* Dentro de cada columna (izq/centro/der) */
+.grid > .col{ gap: var(--card-gap); }
+
+/* Elementos de ancho completo dentro del grid */
+.ticker{ margin-top: var(--row-gap); margin-bottom: var(--row-gap); }
+.triplet-lines{ margin-top: calc(var(--row-gap)*0.75); margin-bottom: var(--row-gap); }
+
+/* Un poco más de aire antes del footer */
+.dirinf-footer .df-container{ padding-top: calc(var(--section-gap)*1.2); }
+
+/* Opcional: un pelín más de aire bajo los títulos de sección */
+.section-title{ margin: .25rem 0 1.15rem; }

@@ -1,0 +1,179 @@
+!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Radio UA — Universidad de Antofagasta</title>
+  <link rel="stylesheet" href="radio-ua.css" />
+</head>
+<body>
+
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a href="#" class="logo" aria-label="Radio UA, volver al inicio">
+        <img class="logo-img" src="assets/img/logo-radio-ua.png" alt="Radio FM Universidad de Antofagasta" />
+      </a>
+
+      <!-- Señal en vivo (compacta) -->
+      <div id="vivo" class="player-wrap" aria-label="Señal en vivo">
+        <audio class="mini-player" controls preload="none">
+          <source src="https://streaming.example.com/radio-ua.mp3" type="audio/mpeg" />
+          Tu navegador no soporta la reproducción de audio.
+        </audio>
+      </div>
+
+      <nav class="rrss" aria-label="Redes sociales de la Radio UA">
+        <a href="#" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="Facebook">FB</a>
+        <a href="#" aria-label="YouTube">YT</a>
+        <a href="#" aria-label="X / Twitter">X</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN NAV -->
+  <nav class="mainnav" role="navigation" aria-label="Navegación principal">
+    <div class="container mainnav-inner">
+      <a href="#">Nuestra historia</a>
+      <a href="#">Misión</a>
+      <a href="#vivo">Volver a escuchar</a>
+      <a href="#">Programación</a>
+      <a href="#">Galería de fotos</a>
+    </div>
+  </nav>
+
+  <!-- CONTENT -->
+  <main class="container grid">
+
+    <!-- COLUMNA IZQUIERDA -->
+    <div class="col col-left">
+      <section aria-labelledby="tit-noticias" class="card card-news" id="bloque-noticias" data-feed="noticias-destacadas">
+        <h2 id="tit-noticias" class="section-title">Noticias</h2>
+
+        <article class="news-feature">
+          <a href="#" class="img ph" aria-hidden="true"></a>
+          <div class="news-body">
+            <h3><a href="#">Noticia destacada de ejemplo: título genérico para maquetación</a></h3>
+            <p class="muted">Resumen de 1–2 líneas. 12·03·2025 • Equipo Radio UA</p>
+          </div>
+        </article>
+
+        <article class="news-feature alt">
+          <a href="#" class="img ph" aria-hidden="true"></a>
+          <div class="news-body">
+            <h3><a href="#">Noticia 2 de ejemplo: segundo bloque grande</a></h3>
+            <p class="muted">Otra bajada breve. 10·03·2025 • Prensa UA</p>
+          </div>
+        </article>
+
+        <article class="news-feature">
+          <a href="#" class="img ph" aria-hidden="true"></a>
+          <div class="news-body">
+            <h3><a href="#">Noticia 3 de ejemplo: tercer bloque para completar la grilla</a></h3>
+            <p class="muted">Sumario genérico. 08·03·2025 • Comunicaciones</p>
+          </div>
+        </article>
+      </section>
+    </div>
+
+    <!-- COLUMNA CENTRAL -->
+    <div class="col col-mid">
+      <section aria-labelledby="tit-variadas" class="card card-list" id="bloque-variadas" data-feed="noticias-variadas">
+        <h2 id="tit-variadas" class="section-title">Noticias varias</h2>
+        <ul class="list">
+          <li><a href="#">Titular genérico de lista n.º 1 para ocupar espacio</a></li>
+          <li><a href="#">Titular genérico de lista n.º 2 para ocupar espacio</a></li>
+          <li><a href="#">Titular genérico de lista n.º 3 para ocupar espacio</a></li>
+          <li><a href="#">Titular genérico de lista n.º 4 para ocupar espacio</a></li>
+        </ul>
+      </section>
+
+      <!-- Editorial debajo de Noticias varias -->
+      <article class="card inset editorial" aria-labelledby="tit-editorial" id="bloque-editorial" data-feed="editorial">
+        <h3 id="tit-editorial">Editorial</h3>
+        <p>Texto editorial de ejemplo. Este espacio se reemplazará por contenido del CMS/API.
+          <a href="#">Leer más</a></p>
+      </article>
+    </div>
+
+    <!-- COLUMNA DERECHA -->
+    <div class="col col-right">
+      <aside aria-labelledby="tit-columnas" class="card card-columnas" id="bloque-columnas" data-feed="radio-columnas">
+        <h2 id="tit-columnas" class="section-title">Radio columnas</h2>
+        <div class="gallery ph" aria-label="Galería (placeholder)"></div>
+        <div class="gallery ph" aria-label="Galería (placeholder)"></div>
+      </aside>
+    </div>
+
+    <!-- Noticias UA (estático) -->
+    <section class="ticker" aria-label="Noticias UA" id="ticker-ua" data-feed="noticias-ua">
+      <div class="ticker-title">Noticias UA</div>
+      <div class="ticker-track" aria-live="polite">
+        <a href="#">Actividad institucional de ejemplo 1 con un texto de muestra justificado para la maqueta.</a>
+        <a href="#">Agenda académica de ejemplo con detalle breve para ocupar espacio y ver la alineación.</a>
+        <a href="#">Convocatoria abierta de ejemplo para talleres y seminarios estudiantiles.</a>
+        <a href="#">Extensión • Teatro Pedro de la Barra: programación destacada del mes.</a>
+      </div>
+    </section>
+
+    <!-- Tripleta de líneas -->
+    <section class="triplet-lines" aria-label="Enlaces rápidos" id="triplet" data-feed="enlaces-rapidos">
+      <div class="lines-card" id="triplet-left" data-slot="left">
+        <ul>
+          <li><a href="#">Línea rápida izquierda n.º 1</a></li>
+          <li><a href="#">Línea rápida izquierda n.º 2</a></li>
+        </ul>
+      </div>
+
+      <div class="lines-card center" id="triplet-center" data-slot="center">
+        <ul>
+          <li><a href="#">Línea única centro</a></li>
+        </ul>
+      </div>
+
+      <div class="lines-card right" id="triplet-right" data-slot="right">
+        <ul>
+          <li><a href="#">Línea rápida derecha n.º 1</a></li>
+          <li><a href="#">Línea rápida derecha n.º 2</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER estilo UA/CNA -->
+  <footer class="dirinf-footer">
+    <div class="df-container">
+      <div class="df-logos">
+        <img src="assets/img/ua cna blanco.png" alt="UA y CNA — versión en blanco" />
+      </div>
+
+      <hr class="df-div" />
+
+      <div class="df-cols">
+        <div>
+          <p><strong>Ubícanos en :</strong></p>
+          <p><strong>Campus Angamos, Antofagasta:</strong><br>Angamos #601 4to piso</p>
+          <p><strong>Campus Coloso, Antofagasta:</strong><br>Av. Universidad de Antofagasta #02800 OF</p>
+          <p><strong>Hospital Clínico, Antofagasta:</strong><br>Av. Argentina #1962</p>
+        </div>
+        <div>
+          <p><strong>Contactos :</strong></p>
+          <p><strong>Ítalo Santoro A.</strong><br>Dir.informatica@uantof.cl<br>55-2637104</p>
+        </div>
+        <div>
+          <p><strong>Viviana Ubillo O.</strong><br>Secretaria Dirección<br>viviana.ubillo@uantof.cl<br>55-2637197</p>
+        </div>
+      </div>
+
+      <div class="df-legal">
+        © <span id="year"></span> Dirección de Informática – Universidad de Antofagasta
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
